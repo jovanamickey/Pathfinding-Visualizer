@@ -1,0 +1,121 @@
+.node {
+  width: 25px;
+  height: 25px;
+  display: flex;
+  background-color: whitesmoke;
+  border: 1px solid azure;
+  border-radius: 25% 10%;
+  outline: 1px solid grey;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.node:hover {
+  background-color: rgba(211, 211, 211, 0.977);
+  box-shadow: 0 0 10px grey;
+}
+
+.node-start {
+  position: relative;
+  animation: pulse 2s infinite;
+}
+
+.node-start star {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  color: black;
+}
+
+.node-finish {
+  position: relative;
+  animation: pulse 2s infinite;
+}
+
+.node-finish flag {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  color: black;
+}
+
+.node-visited {
+  animation-name: colourTransition;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+
+@keyframes colourTransition {
+  0% {
+    transform: scale(0.3);
+    background-color: royalblue;
+    border-radius: 100%;
+  }
+
+  33% {
+    background-color: rgba(135, 206, 235, 1);
+  }
+
+  66% {
+    transform: scale(1.2);
+    background-color: rgba(92, 153, 199, 1);
+  }
+
+  100% {
+    transform: scale(1);
+    background-color: rgba(103, 167, 199, 0.817);
+  }
+}
+
+.node-wall {
+  background-color: #36454f;
+}
+
+.node-shortest-path {
+  animation-name: shortestPath;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+
+@keyframes gradientPath {
+  0% {
+    background: linear-gradient(
+      45deg,
+      rgba(255, 218, 185, 0.7),
+      rgba(255, 204, 153, 0.7)
+    );
+  }
+  50% {
+    background: linear-gradient(
+      45deg,
+      rgba(255, 204, 153, 0.7),
+      rgba(150, 90, 199, 0.75)
+    );
+  }
+  100% {
+    background: linear-gradient(
+      45deg,
+      rgba(189, 160, 208, 0.75),
+      rgba(150, 90, 199, 0.75)
+    );
+  }
+}
+
+.node-shortest-path {
+  animation: gradientPath 0.5s ease 3;
+  animation-fill-mode: forwards;
+}
